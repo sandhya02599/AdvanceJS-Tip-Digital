@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+    <style>
+        body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+.calculator {
+    text-align: center;
+}
+
+input {
+    padding: 10px;
+    margin: 10px;
+    font-size: 1em;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Tip Calculator</h1>
+        <input type="number" id="billAmount" placeholder="Bill Amount">
+        <input type="number" id="tipPercentage" placeholder="Tip %">
+        <button onclick="calculateTip()">Calculate</button>
+        <p id="result"></p>
+    </div>
+    <script>
+        function calculateTip() {
+    const billAmount = document.getElementById("billAmount").value;
+    const tipPercentage = document.getElementById("tipPercentage").value;
+
+    if (billAmount && tipPercentage) {
+        const tip = (billAmount * (tipPercentage / 100)).toFixed(2);
+        document.getElementById("result").textContent = `Tip Amount: $${tip}`;
+    } else {
+        document.getElementById("result").textContent = "Please enter both values.";
+    }
+}
+
+    </script>
+</body>
+</html>
